@@ -1,12 +1,11 @@
 package com.kodilla.testing.shape;
 
-public class Triangle implements Square {
+public class Triangle implements Shape {
 
-    private String name;
+    private static final String name = "Triangle";
     private int field;
 
-    public Triangle(String name, int field) {
-        this.name = name;
+    public Triangle(int field) {
         this.field = field;
     }
 
@@ -17,7 +16,6 @@ public class Triangle implements Square {
     public int getField() {
         return field;
     }
-
 
 
 }
