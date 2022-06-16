@@ -10,7 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -25,6 +25,7 @@ class WeatherForecastTestSuite {
     public static void afterAllTests() {
         System.out.println("All tests are finished.");
     }
+
     @Mock
     private Temperatures temperaturesMock;
 
@@ -40,6 +41,7 @@ class WeatherForecastTestSuite {
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
     }
 
+
     @Test
     @DisplayName("Test Calculating Weather Forecast")
     void testCalculateForecastWithMock() {
@@ -51,6 +53,7 @@ class WeatherForecastTestSuite {
         //Then
         assertEquals(5, quantityOfSensors);
     }
+
     @Test
     @DisplayName("Test Calculating Average weather in celsius")
     void testCalculateAverageWithMock() {
@@ -59,16 +62,31 @@ class WeatherForecastTestSuite {
         // when
         double averageResult = weatherForecast.calculateAverage();
         // then
-        assertEquals(25.56,averageResult);
+        assertEquals(25.56, averageResult);
     }
+
     @Test
-    @DisplayName("Test Calculating median weather")
-    void testCalculateMedianWithMock() {
+    @DisplayName("Test Calculating median weather with Odd Numbers")
+    void testCalculateOddMedianWithMock() {
         //Given
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
         // when
         double medianResult = weatherForecast.calculateMedian();
         // then
-        assertEquals(25.5,medianResult);
+        assertEquals(25.5, medianResult);
+
+    }
+
+    @Test
+    @DisplayName("Test Calculating median weather with Even Numbers")
+    void testCalculateEvenMedianWithMock() {
+        //Given
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        temperaturesMock.getTemperatures().put("Czestochowa", 20.5); // Adding 6th city
+
+        // when
+        double medianResult = weatherForecast.calculateMedian();
+        // then
+        assertEquals(25.2, medianResult);
     }
 }

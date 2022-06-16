@@ -24,24 +24,29 @@ public class WeatherForecast {
 
     public double calculateAverage() {
         double average = 0;
-        for (Map.Entry<String, Double> temperature :
-                temperatures.getTemperatures().entrySet()) {
-            average = average + temperature.getValue();
+
+        List<Double> temperatureList = new ArrayList<>(temperatures.getTemperatures().values());
+        int sizeOfList = temperatureList.size();
+
+        for (int i = 0; i < sizeOfList; i++) {
+            average += temperatureList.get(i);
         }
-        return average / temperatures.getTemperatures().size();
+        return average / sizeOfList;
     }
 
     public double calculateMedian() {
 
         double median = 0;
+
         List<Double> temperatureList = new ArrayList<>(temperatures.getTemperatures().values());
         Collections.sort(temperatureList);
-        if (temperatureList.size() == 0) {
+        int sizeOfList = temperatureList.size();
+        if (sizeOfList == 0) {
             return -1;
-        } else if (temperatureList.size() % 2 == 0) {
-            median = temperatureList.get((temperatureList.size() -1) /2);
+        } else if (sizeOfList % 2 == 0) {
+            median = temperatureList.get((sizeOfList - 1) / 2);
         } else {
-            median = (temperatureList.get((temperatureList.size() -1) / 2) + temperatureList.get(temperatureList.size() / 2)) / 2;
+            median = (temperatureList.get((sizeOfList - 1) / 2) + temperatureList.get(sizeOfList / 2)) / 2;
         }
         return median;
     }
