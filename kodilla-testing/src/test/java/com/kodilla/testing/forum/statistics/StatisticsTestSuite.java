@@ -19,26 +19,6 @@ public class StatisticsTestSuite {
 
     private static int testCounter = 0;
 
-
-// Nieudana próbka genneratora nazw użytkowników
-//    private static String characterslist = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-//
-//    private List<String> generateListOfUsers(int usersQuantity){
-//        List<String> userListMock = new ArrayList<>();
-//        for (int n = 1; n <= 101; n++) {
-//            userListMock.add(generateRandomUsers);
-//        } return userListMock;
-//    }
-//
-//            public static String generateRandomUsers (String characterslist, int Length){
-//                StringBuilder sb = new StringBuilder();
-//                Random random = new Random();
-//                for (int i = 0; i <= 10; i++) {
-//                    sb.append(characterslist.charAt(random.nextInt(characterslist.length())));
-//                }
-//                return sb.toString();
-//            }
-
     @BeforeAll
     public static void beforeAllTests() {
         System.out.println("Starting tests");

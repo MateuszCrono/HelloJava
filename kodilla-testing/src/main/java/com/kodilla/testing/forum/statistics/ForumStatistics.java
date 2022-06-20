@@ -38,14 +38,12 @@ public class ForumStatistics {
         userCount = statistics.usersNames().size();
         postCount = statistics.postsCount();
         commentCount = statistics.commentsCount();
-        if (postCount != 0 && userCount != 0) {
+        commentPostAverage = (double) commentCount / postCount;
+        if (userCount != 0) {
             postAverage = (double) postCount / userCount;
         }
-        if (commentCount != 0 && userCount != 0) {
+        if (userCount != 0) {
             commentAverage = (double) commentCount / userCount;
-        }
-        if (commentCount > 0 && postCount > 0) {
-            commentPostAverage = (double) commentCount / postCount;
         }
     }
 
