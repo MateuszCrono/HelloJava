@@ -1,15 +1,34 @@
-package com.kodilla.stream;                                                   // [1]
+package com.kodilla.stream;
 
-import com.kodilla.stream.lambda.ExpressionExecutor;                          // [2]
+import com.kodilla.stream.beautifier.PoemBeatufier;
 
-public class StreamMain {                                                     // [3]
 
-    public static void main(String[] args) {                                   // [4]
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();       // [5]
+public class StreamMain {
 
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);           // [6]
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);           // [7]
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);           // [8]
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);           // [9]
+    public static void main(String[] args) {
+
+//        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
+//
+//        System.out.println("Calculating expressions with lambdas");
+//        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
+//        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
+//        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
+//        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
+//
+//        System.out.println("Calculating expressions with method references");
+//        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
+//        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
+//        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
+//        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
+
+        PoemBeatufier poemBeatufier = new PoemBeatufier();
+
+        poemBeatufier.beautify("Adding gorgeous forward slashes before text", (a) -> "/// " + a);
+
+        poemBeatufier.beautify("Changing to breathtaking Capital letters ", (a) -> a.toUpperCase());
+
+        poemBeatufier.beautify("Repeating the same text over again -> ", (a) -> a.repeat(2));
+
+
     }
 }
