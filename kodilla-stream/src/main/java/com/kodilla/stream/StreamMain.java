@@ -23,11 +23,11 @@ public class StreamMain {
 
         PoemBeatufier poemBeatufier = new PoemBeatufier();
 
-        poemBeatufier.beautify("Adding gorgeous forward slashes before text", (a) -> "/// " + a);
+        poemBeatufier.beautify(" <- Adding gorgeous forward slashes before text", a -> "/// " + a);
 
-        poemBeatufier.beautify("Changing to breathtaking Capital letters ", (a) -> a.toUpperCase());
+        poemBeatufier.beautify("Changing to breathtaking Capital letters ", String::toUpperCase);
 
-        poemBeatufier.beautify("Repeating the same text over again -> ", (a) -> a.repeat(2));
+        poemBeatufier.beautify("Repeating the same text over again -> ", a -> a.repeat(2));
 
 
     }

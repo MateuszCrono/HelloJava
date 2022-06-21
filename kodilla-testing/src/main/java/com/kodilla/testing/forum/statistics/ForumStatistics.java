@@ -38,7 +38,9 @@ public class ForumStatistics {
         userCount = statistics.usersNames().size();
         postCount = statistics.postsCount();
         commentCount = statistics.commentsCount();
-        commentPostAverage = (double) commentCount / postCount;
+        if (postCount != 0) {
+            commentPostAverage = (double) commentCount / postCount;
+        }
         if (userCount != 0) {
             postAverage = (double) postCount / userCount;
         }
@@ -49,7 +51,7 @@ public class ForumStatistics {
 
     public String showStatistics() {
         return
-                        " User Count = " + userCount +
+                " User Count = " + userCount +
                         " Post Count = " + postCount +
                         " Comment Count = " + commentCount +
                         " Post Average = " + postAverage +

@@ -9,5 +9,9 @@ public class PoemBeatufier {
 
     }
 
+    public void beautifyToUpperCase (String text) {
+        System.out.println(text.toUpperCase());
+    }
+
 
 }
