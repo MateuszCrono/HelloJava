@@ -136,7 +136,7 @@ class BoardTestSuite {
                 .filter(inProgressTasks::contains)                             // [4]
                 .flatMap(tl -> tl.getTasks().stream())                         // [5]
                 .map(Task::getCreated)                                         // [6]
-              .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)  // [7]
+              .filter(d -> d.compareTo(Task::getCreated.minusDays(10)) <= 0)  // [7]
                 .count();                                                      // [8]
 
         //Then
@@ -155,7 +155,7 @@ class BoardTestSuite {
         Double averageTaskTime = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .mapToInt(date -> Period.between(date.getCreated(), LocalDate.now()).getDays())
+                .mapToInt(date -> Period.between(da te.getCreated(), LocalDate.now()).getDays())
                 .average()
                 .orElse(0);
 
