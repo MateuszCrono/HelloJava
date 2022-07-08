@@ -6,6 +6,7 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.time.LocalDate.*;
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,38 +35,38 @@ class BoardTestSuite {
                         "the temperaure from external service",
                 user1,
                 user2,
-                LocalDate.now().minusDays(20),
-                LocalDate.now().plusDays(30));
+                now().minusDays(20),
+                now().plusDays(30));
         Task task2 = new Task("HQLs for analysis",
                 "Prepare some HQL queries for analysis",
                 user1,
                 user2,
-                LocalDate.now().minusDays(20),
-                LocalDate.now().minusDays(5));
+                now().minusDays(20),
+                now().minusDays(5));
         Task task3 = new Task("Temperatures entity",
                 "Prepare entity for temperatures",
                 user3,
                 user2,
-                LocalDate.now().minusDays(20),
-                LocalDate.now().plusDays(15));
+                now().minusDays(20),
+                now().plusDays(15));
         Task task4 = new Task("Own logger",
                 "Refactor company logger to meet our needs",
                 user3,
                 user2,
-                LocalDate.now().minusDays(10),
-                LocalDate.now().plusDays(25));
+                now().minusDays(10),
+                now().plusDays(25));
         Task task5 = new Task("Optimize searching",
                 "Archive data searching has to be optimized",
                 user4,
                 user2,
-                LocalDate.now(),
-                LocalDate.now().plusDays(5));
+                now(),
+                now().plusDays(5));
         Task task6 = new Task("Use Streams",
                 "use Streams rather than for-loops in predictions",
                 user4,
                 user2,
-                LocalDate.now().minusDays(15),
-                LocalDate.now().minusDays(2));
+                now().minusDays(15),
+                now().minusDays(2));
 
         //taskLists
         TaskList taskListToDo = new TaskList("To do");
@@ -116,7 +117,7 @@ class BoardTestSuite {
         List<Task> tasks = project.getTaskLists().stream()          // [4]
                 .filter(undoneTasks::contains)                           // [5]
                 .flatMap(tl -> tl.getTasks().stream())                   // [6]
-                .filter(t -> t.getDeadline().isBefore(LocalDate.now()))  // [7]
+                .filter(t -> t.getDeadline().isBefore(now()))  // [7]
                 .collect(toList());                                      // [8]
 
         //Then
@@ -136,7 +137,7 @@ class BoardTestSuite {
                 .filter(inProgressTasks::contains)                             // [4]
                 .flatMap(tl -> tl.getTasks().stream())                         // [5]
                 .map(Task::getCreated)                                         // [6]
-              .filter(d -> d.compareTo(Task::getCreated.minusDays(10)) <= 0)  // [7]
+                .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)  // [7]
                 .count();                                                      // [8]
 
         //Then
@@ -155,7 +156,7 @@ class BoardTestSuite {
         Double averageTaskTime = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .mapToInt(date -> Period.between(da te.getCreated(), LocalDate.now()).getDays())
+                .mapToInt(date -> Period.between(date.getCreated(), now()).getDays())
                 .average()
                 .orElse(0);
 
