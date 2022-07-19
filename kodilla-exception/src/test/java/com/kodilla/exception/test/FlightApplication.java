@@ -11,8 +11,10 @@ public class FlightApplication {
 
 
 
-        try {flightFinder.findFlight(flight1);
+        try {
+            flightFinder.findFlight(flight1);
         System.out.println("Flying from airport " + flight1.getDepartureAirport()+ " to airport " + flight1.getArrivalAirport());
+
         } catch (RouteNotFoundException e) {
             System.out.println("Airport not found on the list : "  + e);
         }

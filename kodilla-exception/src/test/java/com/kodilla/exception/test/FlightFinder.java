@@ -32,10 +32,8 @@ public class FlightFinder {
 
 
     public boolean findAirport(String airportName) throws RouteNotFoundException {
-        if (airportDataBase().containsKey(airportName) && airportDataBase().containsValue(true)) {
+        if (airportDataBase().containsKey(airportName)) {
             return true;
-        } else if (airportDataBase().containsKey(airportName) && airportDataBase().containsValue(false)) {
-            throw new RouteNotFoundException("Airport is currently unavailable");
         } else {
             throw new RouteNotFoundException("Airport does not exist in the database");
         }
