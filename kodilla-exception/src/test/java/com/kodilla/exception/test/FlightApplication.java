@@ -4,12 +4,10 @@ public class FlightApplication {
 
     public static void main (String[] args)  {
         Flight flight1 = new Flight("Warsaw", "Tokyo");
-        Flight flight2 = new Flight("Shanghai", "Berlin");
+        Flight flight2 = new Flight("Shanghai", "Helsinki");
         Flight flight3 = new Flight("Seoul", "Czestochowa");
 
         FlightFinder flightFinder = new FlightFinder();
-
-
 
         try {
             flightFinder.findFlight(flight1);

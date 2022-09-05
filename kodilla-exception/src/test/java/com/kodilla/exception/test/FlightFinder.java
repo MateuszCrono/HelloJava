@@ -30,12 +30,12 @@ public class FlightFinder {
         return findAirport(flight.getArrivalAirport()) && findAirport(flight.getDepartureAirport());
     }
 
-
     public boolean findAirport(String airportName) throws RouteNotFoundException {
         if (airportDataBase().containsKey(airportName)) {
             return true;
         } else {
-            throw new RouteNotFoundException("Airport does not exist in the database");
+            throw new RouteNotFoundException("This Airport is not allowed");
         }
     }
+
 }
