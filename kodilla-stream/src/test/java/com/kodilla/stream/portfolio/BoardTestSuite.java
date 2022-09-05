@@ -1,5 +1,9 @@
 package com.kodilla.stream.portfolio;
 
+import com.kodilla.stream.forumuser.portfolio.Board;
+import com.kodilla.stream.forumuser.portfolio.Task;
+import com.kodilla.stream.forumuser.portfolio.TaskList;
+import com.kodilla.stream.forumuser.portfolio.User;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.Period;

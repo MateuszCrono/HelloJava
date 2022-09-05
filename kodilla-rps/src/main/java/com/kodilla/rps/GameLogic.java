@@ -12,8 +12,18 @@ public class GameLogic {
     int computerScore = 0;
     int gameEndScore = 1;
 
+    public int getPlayerScore() {
+        return playerScore;
+    }
 
-    public GameLogic() {
+    public int getComputerScore() {
+        return computerScore;
+    }
+
+    public GameLogic process() {
+
+        System.out.print("To how many points you want to play the game ?? : ");
+        gameEndScore = Integer.valueOf(keyboard.nextLine());
         // Computer Moves
         while (gameEndScore > playerScore && gameEndScore > computerScore) {
             String[] rps = {"Rock", "Paper", "Scissors"};
@@ -23,7 +33,18 @@ public class GameLogic {
             // Game Outcomes
             System.out.println("Please Choose your move ( 1 for Rock , 2 for Paper, 3 for Scissors )");
             playerMove = keyboard.nextLine();
-            if (playerMove.equals("1")) {
+
+
+            if (playerMove.equalsIgnoreCase("X")) {
+                System.out.println("Are you sure you want to restart the game? (press Y for yes or any other key to get back to the game)");
+                playerMove = keyboard.nextLine();
+                if (playerMove.equalsIgnoreCase("y")) {
+                    System.out.println("Thank you for playing");
+                    new GameRestart();
+                } else {
+                    System.out.println("Coming back to the game");
+                }
+            } else if (playerMove.equals("1")) {
                 if (computerMove.equals("Paper")) {
                     System.out.println("You Lost");
                     computerScore++;
@@ -56,5 +77,10 @@ public class GameLogic {
             }
             System.out.println("Current score is : " + userName + " " + playerScore + " : " + computerScore + " Computer");
         }
+        System.out.println("Game is Finished, Thank you for playing");
+        GameRestart.restart();
+        return new GameLogic();
+
     }
 }
+

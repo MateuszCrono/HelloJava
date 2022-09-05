@@ -2,6 +2,9 @@ package com.kodilla.rps;
 
 public class Instructions {
 
+    String userName = "";
+
+
     public static void introductions() {
         System.out.println("Welcome to the Rock&Paper&Scissors game");
         System.out.print("Please input your name : ");
@@ -17,8 +20,7 @@ public class Instructions {
                 "Rock breaks scissors (rock wins)\n" +
                 "Scissors cuts paper (scissors wins)");
         System.out.println("If both you and the computer enter the same choice, then the game is tied.");
-        System.out.println("When you want to restart the game press -> n");
-        System.out.println("When you want to finish the game press -> x");
+        System.out.println("When you want to restart or finish the game press -> x");
         System.out.println("Good luck and have fun");
     }
 }
