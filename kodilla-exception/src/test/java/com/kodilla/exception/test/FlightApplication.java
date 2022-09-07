@@ -1,5 +1,8 @@
 package com.kodilla.exception.test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FlightApplication {
 
     public static void main (String[] args)  {
@@ -7,24 +10,38 @@ public class FlightApplication {
         Flight flight2 = new Flight("Shanghai", "Helsinki");
         Flight flight3 = new Flight("Seoul", "Czestochowa");
 
-        FlightFinder flightFinder = new FlightFinder();
+            Map<String, Boolean> allowedAirports = new HashMap<>();
+            allowedAirports.put("Shanghai", true);
+            allowedAirports.put("Tokyo", true);
+            allowedAirports.put("Warsaw", true);
+            allowedAirports.put("Helsinki", false);
+            allowedAirports.put("Rome", false);
+            allowedAirports.put("Berlin", true);
+            allowedAirports.put("Seoul", true);
+            allowedAirports.put("Amsterdam", false);
+            allowedAirports.put("Beijing", false);
+
+        FlightFinder flightFinder = new FlightFinder(allowedAirports);
 
         try {
             flightFinder.findFlight(flight1);
+            flightFinder.print(flight1);
         System.out.println("Flying from airport " + flight1.getDepartureAirport()+ " to airport " + flight1.getArrivalAirport());
-
+            flightFinder.print(flight1);
         } catch (RouteNotFoundException e) {
             System.out.println("Airport not found on the list : "  + e);
         }
 
         try {flightFinder.findFlight(flight2);
             System.out.println("Flying from airport " + flight2.getDepartureAirport()+ " to airport " + flight2.getArrivalAirport());
+            flightFinder.print(flight2);
         } catch (RouteNotFoundException e) {
             System.out.println("Airport not found on the list : "  + e);
         }
 
         try {flightFinder.findFlight(flight3);
             System.out.println("Flying from airport " + flight3.getDepartureAirport()+ " to airport " + flight3.getArrivalAirport());
+            flightFinder.print(flight3);
         } catch (RouteNotFoundException e) {
             System.out.println("Airport not found on the list : "  + e);
         }

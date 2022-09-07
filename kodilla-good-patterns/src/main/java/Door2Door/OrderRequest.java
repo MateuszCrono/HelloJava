@@ -4,7 +4,7 @@ public class OrderRequest {
 
     private Customer customer;
 
-    private FoodCompany foodCompany
+    private FoodCompany foodCompany;
     private Product product;
     private double productPrice;
     private double quantity;
