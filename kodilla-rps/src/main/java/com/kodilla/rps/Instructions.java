@@ -2,8 +2,6 @@ package com.kodilla.rps;
 
 public class Instructions {
 
-    String userName = "";
-
 
     public static void introductions() {
         System.out.println("Welcome to the Rock&Paper&Scissors game");

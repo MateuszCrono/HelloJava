@@ -40,7 +40,7 @@ public class GameLogic {
                 playerMove = keyboard.nextLine();
                 if (playerMove.equalsIgnoreCase("y")) {
                     System.out.println("Thank you for playing");
-                    new GameRestart();
+                    GameRestart.restart();
                 } else {
                     System.out.println("Coming back to the game");
                 }
@@ -75,12 +75,13 @@ public class GameLogic {
                     System.out.println("It's a tie");
                 }
             }
+            else {
+                System.out.println("Wrong input, try again");
+            }
             System.out.println("Current score is : " + userName + " " + playerScore + " : " + computerScore + " Computer");
         }
         System.out.println("Game is Finished, Thank you for playing");
-        GameRestart.restart();
-        return new GameLogic();
-
+        return GameRestart.restart();
     }
 }
 
