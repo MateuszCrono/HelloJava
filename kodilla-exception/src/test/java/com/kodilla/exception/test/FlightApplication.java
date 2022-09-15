@@ -23,10 +23,8 @@ public class FlightApplication {
 
         FlightFinder flightFinder = new FlightFinder(allowedAirports);
 
-        try {
-            flightFinder.findFlight(flight1);
-            flightFinder.print(flight1);
-        System.out.println("Flying from airport " + flight1.getDepartureAirport()+ " to airport " + flight1.getArrivalAirport());
+        try {flightFinder.findFlight(flight1);
+            System.out.println("Flying from airport " + flight1.getDepartureAirport()+ " to airport " + flight1.getArrivalAirport());
             flightFinder.print(flight1);
         } catch (RouteNotFoundException e) {
             System.out.println("Airport not found on the list : "  + e);

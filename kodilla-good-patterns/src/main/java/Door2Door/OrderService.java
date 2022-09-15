@@ -6,6 +6,6 @@ public interface OrderService {
     private Product product;
 
 
-    boolean OrderSuccess(final Customer customer, final Product product );
+    boolean OrderSuccess(final Customer customer, final Product product, boolean isAvailable );
 
 }

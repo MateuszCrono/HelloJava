@@ -12,20 +12,22 @@ public class FlightFinder {
     }
 
     public boolean findFlight(Flight flight) throws RouteNotFoundException {
-        Boolean result = airportMap.get(flight.getArrivalAirport());
-        if (result == null) {
-            throw new RouteNotFoundException("Airport not exist");
+        boolean allowedAirports = airportMap.containsKey(flight.getArrivalAirport()) && airportMap.containsKey(flight.getDepartureAirport());
+        if (!allowedAirports) {
+            throw new RouteNotFoundException("Airport does not exist");
         }
-        else return result;
+        else return true;
     }
 
     public void print(Flight flight) {
-        Boolean result = airportMap.get(flight.getArrivalAirport());
-        if (result) {
+        boolean allowedAirports = airportMap.containsKey(flight.getArrivalAirport()) && airportMap.containsKey(flight.getDepartureAirport());
+        boolean allowedToLand = airportMap.get(flight.getArrivalAirport());
+        if (allowedAirports && allowedToLand) {
             System.out.println("Flight to " + flight.getArrivalAirport() + " is allowed ");
         }
         else {
             System.out.println("Flight to " + flight.getArrivalAirport() + " is forbidden ");
         }
+
     }
 }
