@@ -1,34 +1,30 @@
 package Door2Door;
 
+import java.util.Map;
+
 public class OrderRequest {
 
     private Customer customer;
-
     private FoodCompany foodCompany;
-    private Product product;
-    private double productPrice;
-    private double quantity;
-
-    public OrderRequest (final Customer customer,final FoodCompany foodCompany, final Product product, final double productPrice, final double quantity) {
-        this.customer = customer;
-        this.product = product;
-        this.productPrice = productPrice;
-        this.quantity = quantity;
-    }
+    private Map<Product, Integer> productOrderRequest;
 
     public Customer getCustomer() {
         return customer;
     }
 
-    public Product getProduct() {
-        return product;
+    public FoodCompany getFoodCompany() {
+        return foodCompany;
     }
 
-    public double getProductPrice() {
-        return productPrice;
+    public Map<Product, Integer> getproductOrderRequest() {
+        return productOrderRequest;
     }
 
-    public double getQuantity() {
-        return quantity;
+
+    public OrderRequest(final Customer customer, final FoodCompany foodCompany, Map<Product, Integer> productOrderRequest) {
+        this.customer = customer;
+        this.foodCompany = foodCompany;
+        this.productOrderRequest = productOrderRequest;
     }
+
 }

@@ -4,16 +4,16 @@ import java.util.Objects;
 
 public class Product {
 
-    private String product;
+    private String productName;
 
-    public Product(String product) {
-        this.product = product;
+    public Product(String productName) {
+        this.productName = productName;
     }
 
     @Override
     public String toString() {
         return "Product{" +
-                "product='" + product + '\'' +
+                "product='" + productName + '\'' +
                 '}';
     }
 
@@ -22,15 +22,15 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product1 = (Product) o;
-        return Objects.equals(product, product1.product);
+        return Objects.equals(productName, product1.productName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(product);
+        return Objects.hash(productName);
     }
 
     public String getProduct() {
-        return product;
+        return productName;
     }
 }

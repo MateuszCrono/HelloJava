@@ -1,11 +1,17 @@
 package Door2Door;
 
-public interface OrderService {
+import java.util.List;
 
-    private Customer customer;
-    private Product product;
+public class OrderService {
 
+    public void processAllOrders(List<OrderRequest> orderRequest) {
 
-    boolean OrderSuccess(final Customer customer, final Product product, boolean isAvailable );
-
+        orderRequest.stream()
+                .map(n -> {
+                    System.out.println("We're processing your order " + n.getCustomer().getName());
+                    return n.getFoodCompany().process(n.getCustomer(), n.getproductOrderRequest());
+                })
+                .forEach(t -> System.out.println("Order finished with success: " + t + "\n"));
+    }
 }
+
