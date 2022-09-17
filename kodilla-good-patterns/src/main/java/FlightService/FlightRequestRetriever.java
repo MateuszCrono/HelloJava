@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class FlightRequestRetriever {
 
-
+    private Flight flight;
     private FlightService flightService;
 
     public FlightRequestRetriever retrieve() {
@@ -16,6 +16,7 @@ public class FlightRequestRetriever {
         availableFlights.add(new Flight("Gdansk", "Helsinki"));
         availableFlights.add(new Flight("Gdansk", "NewYorkCity"));
         availableFlights.add(new Flight("Czestochowa", "Prague"));
+
 
         return availableFlights;
     }
