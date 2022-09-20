@@ -1,6 +1,5 @@
 package com.kodilla.exception.test;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class FlightFinder {
@@ -11,23 +10,17 @@ public class FlightFinder {
         this.airportMap = airportMap;
     }
 
-    public boolean findFlight(Flight flight) throws RouteNotFoundException {
+    public void findFlight(Flight flight) throws RouteNotFoundException {
         boolean allowedAirports = airportMap.containsKey(flight.getArrivalAirport()) && airportMap.containsKey(flight.getDepartureAirport());
         if (!allowedAirports) {
             throw new RouteNotFoundException("Airport does not exist");
+        } else {
+            boolean allowedToLand = airportMap.get(flight.getArrivalAirport());
+            if (!allowedToLand) {
+                System.out.println("This Airport is not on the allowed arrival list -> " + flight.getArrivalAirport());
+            } else
+                System.out.println("Success");
         }
-        else return true;
     }
 
-    public void print(Flight flight) {
-        boolean allowedAirports = airportMap.containsKey(flight.getArrivalAirport()) && airportMap.containsKey(flight.getDepartureAirport());
-        boolean allowedToLand = airportMap.get(flight.getArrivalAirport());
-        if (allowedAirports && allowedToLand) {
-            System.out.println("Flight to " + flight.getArrivalAirport() + " is allowed ");
-        }
-        else {
-            System.out.println("Flight to " + flight.getArrivalAirport() + " is forbidden ");
-        }
-
-    }
 }

@@ -23,23 +23,20 @@ public class FlightApplication {
 
         FlightFinder flightFinder = new FlightFinder(allowedAirports);
 
+        System.out.println("Checking flight from airport " + flight1.getDepartureAirport()+ " to airport " + flight1.getArrivalAirport());
         try {flightFinder.findFlight(flight1);
-            System.out.println("Flying from airport " + flight1.getDepartureAirport()+ " to airport " + flight1.getArrivalAirport());
-            flightFinder.print(flight1);
         } catch (RouteNotFoundException e) {
             System.out.println("Airport not found on the list : "  + e);
         }
 
+        System.out.println("Checking flight from airport " + flight2.getDepartureAirport()+ " to airport " + flight2.getArrivalAirport());
         try {flightFinder.findFlight(flight2);
-            System.out.println("Flying from airport " + flight2.getDepartureAirport()+ " to airport " + flight2.getArrivalAirport());
-            flightFinder.print(flight2);
         } catch (RouteNotFoundException e) {
             System.out.println("Airport not found on the list : "  + e);
         }
 
+        System.out.println("Checking flight from airport " + flight3.getDepartureAirport()+ " to airport " + flight3.getArrivalAirport());
         try {flightFinder.findFlight(flight3);
-            System.out.println("Flying from airport " + flight3.getDepartureAirport()+ " to airport " + flight3.getArrivalAirport());
-            flightFinder.print(flight3);
         } catch (RouteNotFoundException e) {
             System.out.println("Airport not found on the list : "  + e);
         }
