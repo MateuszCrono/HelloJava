@@ -12,14 +12,6 @@ public class GameLogic {
     int computerScore = 0;
     int gameEndScore = 1;
 
-    public int getPlayerScore() {
-        return playerScore;
-    }
-
-    public int getComputerScore() {
-        return computerScore;
-    }
-
     public GameLogic process() {
 
         System.out.print("To how many points you want to play the game ?? : ");
@@ -33,7 +25,6 @@ public class GameLogic {
             // Game Outcomes
             System.out.println("Please Choose your move ( 1 for Rock , 2 for Paper, 3 for Scissors )");
             playerMove = keyboard.nextLine();
-
 
             if (playerMove.equalsIgnoreCase("X")) {
                 System.out.println("Are you sure you want to restart the game? (press Y for yes or any other key to get back to the game)");
@@ -81,7 +72,9 @@ public class GameLogic {
             System.out.println("Current score is : " + userName + " " + playerScore + " : " + computerScore + " Computer");
         }
         System.out.println("Game is Finished, Thank you for playing");
-        return GameRestart.restart();
+        playerScore = 0;
+        computerScore = 0;
+        return null;
     }
 }
 
