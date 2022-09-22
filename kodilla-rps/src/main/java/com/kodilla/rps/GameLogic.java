@@ -12,7 +12,7 @@ public class GameLogic {
     int computerScore = 0;
     int gameEndScore = 1;
 
-    public GameLogic process() {
+    public void process() {
 
         System.out.print("To how many points you want to play the game ?? : ");
         gameEndScore = Integer.valueOf(keyboard.nextLine());
@@ -74,7 +74,6 @@ public class GameLogic {
         System.out.println("Game is Finished, Thank you for playing");
         playerScore = 0;
         computerScore = 0;
-        return null;
     }
 }
 
