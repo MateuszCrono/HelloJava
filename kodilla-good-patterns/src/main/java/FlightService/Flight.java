@@ -1,8 +1,8 @@
 package FlightService;
 
 public class Flight {
-    private String departureAirport;
-    private String arrivalAirport;
+    private final String departureAirport;
+    private final String arrivalAirport;
 
     public Flight(String departureAirport, String arrivalAirport) {
         this.departureAirport = departureAirport;
