@@ -9,7 +9,7 @@ public class FlightService {
     }
 
     public void execute() {
-        flightFinder.FindFlights();
+        flightFinder.findFlights();
     }
 }
 

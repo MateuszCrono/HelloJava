@@ -13,7 +13,7 @@ public class ConnectionFlightFinder implements FlightFinder {
     }
 
     @Override
-    public void FindFlights() {
+    public void findFlights() {
         Set<ConnectionFlight> availableConnectingFlights = new HashSet<>();
         for (Flight flight : flightRepository.getFlightRepository()) {
             Set<ConnectionFlight> temporarySet = flightRepository.getFlightRepository().stream()

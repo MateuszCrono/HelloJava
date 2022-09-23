@@ -13,7 +13,7 @@ public class DepartureAirportFinder implements FlightFinder {
 
 
     @Override
-    public void FindFlights() {
+    public void findFlights() {
         Set<Flight> availableFlightsFrom = (new FlightRepository().getFlightRepository().stream()
                 .filter(f -> f.getDepartureAirport().equals(departureAirport))
                 .collect(Collectors.toSet()));
