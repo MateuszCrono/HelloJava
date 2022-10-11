@@ -6,4 +6,6 @@ include 'kodilla-rps'
 include 'kodilla-good-patterns'
 include 'kodilla-good-patterns:src:main:Door2Door'
 findProject(':kodilla-good-patterns:src:main:Door2Door')?.name = 'Door2Door'
+include 'kodilla-spring'
+include 'kodilla-spring-introduction'
 
