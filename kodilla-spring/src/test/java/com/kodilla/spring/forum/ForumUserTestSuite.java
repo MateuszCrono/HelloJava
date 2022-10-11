@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ForumUserTestSuite {
 
     @Test
-    void testCircleLoadedIntoContainer() {
+    void testGetUserName() {
         // Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
