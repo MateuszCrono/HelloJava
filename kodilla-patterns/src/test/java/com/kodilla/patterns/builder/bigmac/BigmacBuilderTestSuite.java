@@ -9,6 +9,7 @@ public class BigmacBuilderTestSuite {
     @Test
     void BigmacBuilderTest() {
 
+        // Given
         Bigmac bigmac = new Bigmac.BigmacBuilder()
                 .bun(Rolltype.CLASSIC)
                 .sauce(SauceType.MAYO)
@@ -17,12 +18,17 @@ public class BigmacBuilderTestSuite {
                 .ingredient(IngredientsType.ONION)
                 .ingredient(IngredientsType.CHEESE)
                 .build();
-
+        // When
         System.out.println(bigmac);
+        int ingredientsSize = bigmac.getIngredients().size();
+        int burgersAmount = bigmac.getBurgers();
+        Rolltype burgerBunType = bigmac.getRoll();
+        SauceType burgerSauce = bigmac.getSauce();
 
-        assertEquals(3,bigmac.getIngredients().size());
-        assertEquals(2,bigmac.getBurgers());
-        assertEquals(Rolltype.CLASSIC,bigmac.getRoll());
-        assertEquals(SauceType.MAYO, bigmac.getSauce());
+        // Then
+        assertEquals(3, ingredientsSize);
+        assertEquals(2, burgersAmount);
+        assertEquals(Rolltype.CLASSIC, burgerBunType);
+        assertEquals(SauceType.MAYO, burgerSauce);
         }
     }

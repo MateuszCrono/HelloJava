@@ -33,12 +33,15 @@ public class UserTestSuite {
     @Test
     void testIndividualSharingStrategy() {
 
+        // Given
         User Marczelo = new Millenials("Marczelo");
 
+        // When
         Marczelo.setPublisher(new FacebookPublisher());
-
         String marczeloPublisher = Marczelo.sharePost();
         System.out.println("Marczelo is " + marczeloPublisher);
+
+        // Then
         assertEquals("Facebook user", marczeloPublisher);
     }
 }
