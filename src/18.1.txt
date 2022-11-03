@@ -1,5 +1,5 @@
 { "name": "Lamborghini Huracan" ,
-"model": "Lamborghini"
+"model": "Lamborghini",
 seats":[
     {
       "material": "Leather",
