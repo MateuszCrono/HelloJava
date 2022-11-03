@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -13,6 +15,10 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+
+    @Autowired
+    private EmployeeDao employeeDao;
+
 
     @Test
     void testSaveManyToMany() {
@@ -22,7 +28,7 @@ class CompanyDaoTestSuite {
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
 
         Company softwareMachine = new Company("Software Machine");
-        Company dataMaesters = new Company("Data Maesters");
+        Company dataMaesters = new Company("data Maesters");
         Company greyMatter = new Company("Grey Matter");
 
         softwareMachine.getEmployees().add(johnSmith);
@@ -51,12 +57,55 @@ class CompanyDaoTestSuite {
         assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        //try {
-        //    companyDao.deleteById(softwareMachineId);
-        //    companyDao.deleteById(dataMaestersId);
-        //    companyDao.deleteById(greyMatterId);
-        //} catch (Exception e) {
-        //    //do nothing
-        //}
+        try {
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
+    }
+
+    @Test
+    void testQueryMethods() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company dataGods = new Company("Data Gods");
+
+        softwareMachine.getEmployees().add(johnSmith);
+        dataMaesters.getEmployees().add(stephanieClarckson);
+        dataMaesters.getEmployees().add(lindaKovalsky);
+        dataGods.getEmployees().add(johnSmith);
+        dataGods.getEmployees().add(lindaKovalsky);
+
+        johnSmith.getCompanies().add(softwareMachine);
+        johnSmith.getCompanies().add(dataGods);
+        stephanieClarckson.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(dataGods);
+
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(dataGods);
+
+        //When
+        List<Company> findCompanies = companyDao.findCompanies();
+        List<Employee> retrieveSurnames = employeeDao.retrieveSurnames("Smith");
+
+        //Then
+        try {
+            assertEquals(2, findCompanies.size());
+            assertEquals(3, retrieveSurnames.size());
+
+        } finally {
+            //CleanUp
+            companyDao.deleteAll();
+            employeeDao.deleteAll();
+        }
     }
 }
