@@ -62,6 +62,7 @@ class DbManagerTestSuite {
         int counter = 0;
         while (rs.next()) {
             stringBuilder.append(rs.getString("FIRSTNAME")).append(", ").append(rs.getString("LASTNAME"));
+            System.out.println("User list :" + stringBuilder); // User list that fulfill the requirements
             counter ++;
         }
         rs.close();
