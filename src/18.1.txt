@@ -1,0 +1,20 @@
+{ "name": "Lamborghini Huracan" ,
+"model": "Lamborghini"
+seats":[
+    {
+      "material": "Leather",
+      "color": "GRAY"
+    }, {
+      "material": "Silk",
+      "color": "PURPLE"
+    }, {
+      "material": "Leather",
+      "color": "BROWN"
+    }, {
+      "material": "WOOL",
+      "color": "WHITE"
+    }
+  ],
+  "engineCapacity": 1.5
+
+}

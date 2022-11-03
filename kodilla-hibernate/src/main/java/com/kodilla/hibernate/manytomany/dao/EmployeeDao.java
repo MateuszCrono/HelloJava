@@ -1,10 +1,10 @@
 package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Employee;
-import com.kodilla.hibernate.task.Task;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
 import javax.transaction.Transactional;
 import java.util.List;
 
