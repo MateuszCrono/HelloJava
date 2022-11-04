@@ -9,7 +9,7 @@ import java.util.List;
 @NamedNativeQuery(
         name = "Company.findCompanies",
         query = "SELECT * FROM COMPANIES" +
-        " WHERE COMPANY_NAME LIKE CONCAT('Dat')",
+                " WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :PARTNAME",
         resultClass = Company.class
 )
 @Entity

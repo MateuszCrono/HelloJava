@@ -94,7 +94,7 @@ class CompanyDaoTestSuite {
         companyDao.save(dataGods);
 
         //When
-        List<Company> findCompanies = companyDao.findCompanies();
+        List<Company> findCompanies = companyDao.retrieveWithThreeFirstLetters("dat");
         List<Employee> retrieveSurnames = employeeDao.retrieveSurnames("Smith");
 
         //Then
