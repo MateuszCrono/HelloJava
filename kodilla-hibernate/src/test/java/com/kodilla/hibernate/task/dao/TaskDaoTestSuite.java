@@ -138,7 +138,7 @@ class TaskDaoTestSuite {
         List<Task> longTasks = taskDao.retrieveLongTasks();
         List<Task> shortTasks = taskDao.retrieveShortTasks();
         List<Task> enoughTimeTasks = taskDao.retrieveTasksWithEnoughTime();
-        List<Task> durationLongerThanTasks = taskDao.retrieveTasksWithDurationLongerThan(6);
+        List<Task> durationLongerThanTasks = taskDao.retrieveTasksWithEnoughTime(6);
 
         //Then
         try {

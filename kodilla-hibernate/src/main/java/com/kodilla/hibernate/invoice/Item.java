@@ -72,10 +72,8 @@ public class Item {
         return value;
     }
 
-    @ManyToOne(targetEntity = Item.class,
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
-    @JoinColumn(name = "INVOICE_LIST")
+    @ManyToOne
+     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
     }
