@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+import static junit.framework.Assert.assertEquals;
+
 class SearchFacadeTestSuite {
 
 
@@ -26,23 +28,18 @@ class SearchFacadeTestSuite {
 
         //Given
         Company company1 = new Company("Company1");
-        Company company2 = new Company("Company2");
+        Company company2 = new Company("Kampania2");
         Company company3 = new Company("Company3");
-
-        //When
         companyDao.save(company1);
         companyDao.save(company2);
         companyDao.save(company3);
-
-        long c1 = company1.getId();
-        long c2 = company2.getId();
-        long c3 = company3.getId();
+        //When
 
         List<Company> companies = searchFacade.findAnyCompany("C");
 
         //Then
         try {
-            Assertions.assertEquals(3, companies.size());
+            assertEquals(2, companies.size());
         } finally {
             //ClenUp
             companyDao.deleteAll();
@@ -53,20 +50,19 @@ class SearchFacadeTestSuite {
     void testFindAnyEmployee() {
 
         //Given
-        Employee employee1 = new Employee("firstname1", "lastname1");
-        Employee employee2 = new Employee("firstname2", "lastname2");
-        Employee employee3 = new Employee("firstname3", "lastname3");
-
-        //When
+        Employee employee1 = new Employee("Andrzej", "lastname1");
+        Employee employee2 = new Employee("Ewa", "lastname2");
+        Employee employee3 = new Employee("Andrzej", "lastname3");
         employeeDao.save(employee1);
         employeeDao.save(employee2);
         employeeDao.save(employee3);
+        //When
 
-        List<Employee> employees = searchFacade.findAnyEmployee("name");
+        List<Employee> employees = searchFacade.findAnyEmployee("Ewa");
 
         //Then
         try {
-            Assertions.assertEquals(3, employees.size());
+            Assertions.assertEquals(1, employees.size());
         } finally {
             //ClenUp
             employeeDao.deleteAll();
